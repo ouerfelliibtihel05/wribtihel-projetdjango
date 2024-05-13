@@ -1,0 +1,113 @@
+<!DOCTYPE html">
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Création d'un design étape par étape - Etape n°1 : Le code xhtml</title>
+<style>
+/* Header */
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+header a {
+  color: inherit; /* Inherit color from parent (white) */
+  text-decoration: none; /* Remove underline from links */
+}
+
+header span {
+  font-weight: bold;
+}
+
+/* Navigation */
+nav {
+  background-color: purple; /* Changement de couleur en violet */
+  padding: 1rem;
+  display: flex; /* Utiliser flexbox pour aligner les éléments */
+  justify-content: center; /* Centrer le contenu horizontalement */
+  align-items: center; /* Centrer le contenu verticalement */
+}
+
+#menu {
+  list-style: none; /* Supprimer les puces de liste par défaut */
+  padding: 0;
+  margin: 0;
+  display: flex; /* Utiliser flexbox pour aligner les éléments */
+}
+
+#menu li {
+  margin-right: 1rem;
+}
+
+#menu a {
+  color: white; /* Couleur du texte des liens */
+  text-decoration: none;
+}
+
+#menu a:hover {
+  text-decoration: underline; /* Souligner les liens au survol */
+}
+/* Content */
+contenu {
+  padding: 2rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f2f2f2;
+}
+menu li:nth-child(1) a {
+  color: #FF5733; /* Changer la couleur du texte pour l'application 1 */
+}
+
+/* CSS pour l'application 2 */
+menu li:nth-child(2) a {
+  color: #33FF57; /* Changer la couleur du texte pour l'application 2 */
+}
+
+/* Styles pour les images */
+.image-container {
+  display: flex; /* Utiliser flexbox pour aligner les images */
+  justify-content: space-between; /* Espacement égal entre les images */
+}
+
+.image-container img {
+  width: 700px; /* Définir une largeur fixe pour les images */
+  height: 600px; /* Assurer une hauteur proportionnelle */
+  margin-right: 20px; /* Ajouter une marge à droite pour l'espacement */
+}
+</style>
+</head>
+<body>
+<div id="conteneur">
+<h1 id="header"><a href="#" title="Colored Design - Accueil"><span></span></a></h1>
+
+<nav>
+<ul id="menu">
+<li style="margin-left: auto; margin-right: auto;"><h1> Bienvenu  chers Client</h1></li> <!-- Centrer le texte horizontalement -->
+<li><a href="#"></a></li>
+</ul>
+</nav>
+<div id="contenu">
+<h2></h2>
+<p></p>
+<!-- Utiliser une div pour contenir les images -->
+<div class="image-container">
+  <a href="{% url 'magasin:V'%}">
+    <img src="/media/boutique.jpg" alt="Description de votre image"></a>
+  <a href="/blog">
+    <img src="/media/bb.jpg" alt="Description de votre image"></a>
+</div>
+
+</div>
+<p id="footer"></p>
+</div>
+</body>
+</html>

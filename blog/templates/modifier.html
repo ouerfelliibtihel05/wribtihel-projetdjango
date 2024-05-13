@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modifier le post</title>
+</head>
+<body>
+    <h1>Modifier le post</h1>
+    <form method="post" action="{% url 'modifier_post' post.pk%}">
+                {% csrf_token %}
+        <label for="title">Titre:</label><br>
+        <input type="text" id="title" name="title" value="{{ post.title }}"><br>
+        <label for="content">Contenu:</label><br>
+        <textarea id="content" name="content">{{ post.content }}</textarea><br>
+        <label for="slug">Slug:</label><br>
+        <input type="text" id="slug" name="slug" value="{{ post.slug }}"><br>
+        <label for="author">Auteur:</label><br>
+        <input type="text" id="author" name="author" value="{{ post.author }}"><br>
+        <label for="status">Statut:</label><br>
+        <select id="status" name="status">
+            <option value="draft" {% if post.status == 'draft' %}selected{% endif %}>Brouillon</option>
+            <option value="published" {% if post.status == 'published' %}selected{% endif %}>Publié</option>
+        </select><br>
+        <label for="image">Image:</label><br>
+        <img src="/media/{{ post.image }}" alt="Image associée au post"><br>
+        <form action="{% url 'post_detail' post.pk%}" method="post">
+
+        <input type="submit" value="Enregistrer les modifications">
+        </form>
+    </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Poster un nouveau post</title>
+    <!-- Inclure les liens vers les fichiers CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Facultatif : vous pouvez inclure votre propre fichier CSS pour les styles personnalisés -->
+    <style>
+        /* Styles personnalisés peuvent être ajoutés ici */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Poster un nouveau post</h1>
+        <!-- Utilisation de la classe "form-group" de Bootstrap pour chaque champ de formulaire -->
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <!-- Utilisation de la classe "btn btn-primary" de Bootstrap pour le bouton -->
+            <button type="submit" class="btn btn-primary">Poster</button>
+        </form>
+    </div>
+
+    <!-- Inclure les scripts JavaScript de Bootstrap (optionnel, mais nécessaire pour certains composants Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

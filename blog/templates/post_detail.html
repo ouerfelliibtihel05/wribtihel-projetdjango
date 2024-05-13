@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+    <!-- Chargement de Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Styles personnalisés */
+        body {
+            padding-top: 50px;
+            padding-bottom: 20px;
+            background-color: #f8f9fa; /* Couleur de fond */
+            color: #333; /* Couleur du texte */
+        }
+        .post-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff; /* Couleur de fond du conteneur */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+        }
+        .post-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #8a2be2; /* Couleur du titre */
+        }
+        .post-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 8px; /* Coins arrondis pour l'image */
+        }
+        .post-content {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555; /* Couleur du contenu */
+        }
+        .post-info {
+            margin-top: 20px;
+        }
+        .post-info p {
+            margin-bottom: 5px;
+        }
+        .post-info p strong {
+            font-weight: bold;
+            color: #555; /* Couleur des étiquettes */
+        }
+        .boutons {
+            display: flex; /* Utiliser le modèle flexbox pour aligner les boutons horizontalement */
+        }
+        
+        .modifier {
+            margin-right: 10px; /* Ajouter une marge à droite pour créer de l'espace entre les boutons */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="post-container">
+            <h1 class="post-title">{{ post.title }}</h1>
+            <img src="/media/{{ post.image }}" class="post-image" alt="Image associée au post">
+            <p class="post-content">{{ post.content }}</p>
+            <div class="post-info">
+                <p><strong>Slug:</strong> {{ post.slug }}</p>
+                <p><strong>Auteur:</strong> {{ post.author }}</p>
+                <p><strong>Statut:</strong> {{ post.status }}</p>
+                <!-- Boutons de modification et suppression -->
+                <div class="boutons">
+
+               <button> <a href="{% url 'modifier_post' post.id %}" class="btn btn-primary">Modifier</a></bouton>
+               
+                    
+
+                <form method="post" action="{% url 'supprimer_post' post.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">
+                        <i class="bi bi-trash"></i>Spprimer
+                    <button>
+                </form>
+            </di>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

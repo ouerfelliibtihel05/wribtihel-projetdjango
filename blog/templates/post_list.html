@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post List</title>
+    <!-- Chargement de Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Styles personnalisés */
+        .post-container {
+            border: 1px solid #8a2be2;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .post-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #8a2be2;
+        }
+        .post-image {
+            max-width: 100%;
+            height: auto;
+        }
+        .navbar {
+            background-color: #8a2be2;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+          }
+          
+          .brand-name {
+            font-size: 20px;
+            text-decoration: none;
+          }
+          
+          .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+          
+          .nav-links li {
+            display: inline-block;
+            margin-right: 20px;
+          }
+          
+          .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+          }
+          
+          .nav-links a:hover {
+            background-color: #8a2be2;
+          }
+          .custom-btn-color {
+            background-color: #7f00ff;/* Changer la couleur à votre choix */
+            border-color: #7f00ff; /* Couleur de la bordure */
+            color: #fff; /* Couleur du texte */
+        }
+        .hidden {
+          display: none;
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="brand-name">IISET Blog</a>
+        <header>
+            <h2>Blog ISET</h2>
+            <p>On vous permet de publier vos envies</p>
+        </header>
+        <ul class="nav-links">
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">À Propos</a></li>
+          <li><a href="#" id="contactBtn">Contact</a></li>
+    </ul>
+    <div id="contactList" class="hidden">
+        <ul>
+            <li>Téléphone: 90100215</li>
+            <li>Nom: Ouerfelli Ibtihel</li>
+            <li>Facebook: Ibtihel W'r</li>
+        </ul>
+    </div>
+
+  
+      </nav>
+      <script>
+        document.getElementById('contactBtn').addEventListener('click', function() {
+            var contactList = document.getElementById('contactList');
+            contactList.classList.toggle('hidden');
+        });
+    </script>
+    <div class="container">
+        <h1 class="mt-5 mb-4">Post List</h1>
+        <a href="{% url 'post_create' %}" class="btn custom-btn-color mb-3">Créer un post</a>
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-4">
+                <div class="post-container">
+                    <p class="post-title">{{ post.title }}</p>
+                    <a href="{% url 'post_detail' post.pk %}">
+                        <img src="/media/{{ post.image }}" class="post-image" alt="Image associée au post">
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
